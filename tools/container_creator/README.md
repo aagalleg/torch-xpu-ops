@@ -118,7 +118,7 @@ Use this option to build Docker images with PyTorch XPU. Activate the “pytorch
 - Stops the specified running container
 - Container data and state are preserved
 - Can be restarted later with `--start`
-- User needs to provide `$CONTAINER_NAME` to prevent stopping wrong containers by mistake
+- User needs to provide `CONTAINER_NAME` to prevent stopping wrong containers by mistake
 
 ### Remove Container
 ```bash
@@ -126,7 +126,7 @@ Use this option to build Docker images with PyTorch XPU. Activate the “pytorch
 ```
 - **⚠️ DESTRUCTIVE:** Permanently removes the container
 - All container data is lost (host-mounted volumes are preserved)
-- User needs to provide `$CONTAINER_NAME` to prevent removing wrong containers by mistake
+- User needs to provide `CONTAINER_NAME` to prevent removing wrong containers by mistake
 - Use with caution
 
 ### Help
