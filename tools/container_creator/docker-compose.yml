@@ -1,0 +1,32 @@
+services:
+  create_container:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BASE_IMAGE: ${BASE_IMAGE}
+        HTTP_PROXY: ${HTTP_PROXY}
+        HTTPS_PROXY: ${HTTPS_PROXY}
+        FTP_PROXY: ${FTP_PROXY}
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}
+        ftp_proxy: ${ftp_proxy}
+        no_proxy: ${no_proxy}
+    container_name: ${CONTAINER_NAME}
+    volumes:
+      - ${WORKSPACE}:/workspace
+      - ${DATASET_PATH}:/datasets
+    image: ${IMAGE_NAME}
+    environment:
+      - http_proxy=${http_proxy:-}
+      - https_proxy=${https_proxy:-}
+      - no_proxy=${no_proxy:-}
+      - HTTP_PROXY=${HTTP_PROXY}
+      - HTTPS_PROXY=${HTTPS_PROXY}
+      - FTP_PROXY=${FTP_PROXY}
+      - ftp_proxy=${ftp_proxy}
+    working_dir: /workspace
+    network_mode: host
+    privileged: true
+    shm_size: 12G
+    command: ["tail", "-f", "/dev/null"]
